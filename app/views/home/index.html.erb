@@ -1,4 +1,9 @@
-<div class="bg-red-300">
-  <h1>Home#index</h1>
-  <p>Find me in app/views/home/index.html.erb</p>
-</div>
+<%= render LayoutComponent.new(title: 'Which service do you need?') do %>
+  <div class="flex flex-col">
+    <div class="flex flex-row justify-between">
+      <% available_services.each do |service| %>
+        <%= render partial: 'service', locals: { title: service[:title], description: service[:description], img: service[:img], link: service[:link] } %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,36 @@
+<%= render LayoutComponent.new(title: 'Book a Walk') do %>
+  Some sort of Pic?
+
+  <div data-controller="booking" class="space-y-6">
+    <div class="text-center">Walk</div>
+    <p data-booking-target="description" class="text-center">A 20-minute walk for your pet to get some fresh air and a potty break</p>
+    <div class="flex flex-row justify-center">
+      <div class="flex flex-row items-center space-x-6">
+        <button data-booking-target="option" class="text-green-500 font-extrabold" data-action="click->booking#updateBook" data-path="path2" data-description="A 20 minute walk!">
+          <div class="flex flex-col">
+            <%= heroicon 'cake', variant: :outline, options: { class: 'h-16' } %>
+            <span>20 Minutes</span>
+            <span>$15.00</span>
+          </div>
+        </button>
+        <button data-booking-target="option" data-action="click->booking#updateBook" data-path="path3" data-description="A 30 minute walk!">
+          <div class="flex flex-col">
+            <%= heroicon 'cake', variant: :outline, options: { class: 'h-16' } %>
+            <span>30 Minutes</span>
+            <span>$25.00</span>
+          </div>
+        </button>
+        <button data-booking-target="option" data-action="click->booking#updateBook" data-path="path4" data-description="WOW a 60 minute walk!">
+          <div class="flex flex-col">
+            <%= heroicon 'cake', variant: :outline, options: { class: 'h-16' } %>
+            <span>60 Minutes</span>
+            <span>$40.00</span>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div class="flex flex-row justify-center">
+      <%= link_to 'Continue', '#', class: 'rounded-lg py-2 px-16 bg-green-500 text-white font-bold', data: { booking_target: 'path' } %>
+    </div>
+  </div>
+<% end %>

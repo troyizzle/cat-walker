@@ -1,0 +1,63 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - db/schema.rb
+    - bin/**/*
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+
+Metrics/AbcSize:
+  Exclude:
+    - "db/migrate/*"
+
+Metrics/BlockLength:
+  Exclude:
+    - "config/environments/*"
+    - "spec/**/*"
+
+Metrics/MethodLength:
+  Exclude:
+    - "db/migrate/*"
+
+Rails/RequestReferer:
+  EnforcedStyle: referrer
+
+RSpec/DescribeClass:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Max: 10
+
+RSpec/HookArgument:
+  EnforcedStyle: each
+
+RSpec/MultipleExpectations:
+  Exclude:
+    - "spec/features/**/*"
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 7
+
+RSpec/NestedGroups:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyCaseCondition:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - "app/views/**/*.json.jbuilder"
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes

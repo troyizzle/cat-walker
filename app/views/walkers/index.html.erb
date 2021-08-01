@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Walkers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Terms</th>
+      <th>Zip</th>
+      <th>Range</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @walkers.each do |walker| %>
+      <tr>
+        <td><%= walker.user_id %></td>
+        <td><%= walker.terms %></td>
+        <td><%= walker.zip %></td>
+        <td><%= walker.range %></td>
+        <td><%= link_to 'Show', walker %></td>
+        <td><%= link_to 'Edit', edit_walker_path(walker) %></td>
+        <td><%= link_to 'Destroy', walker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Walker', new_walker_path %>

@@ -1,0 +1,42 @@
+<%= render(LayoutComponent.new(title: 'My profile')) do %>
+  <div class="divide-y-4 space-y-4">
+    <div class="grid grid-cols-3 items-center">
+      <div class="text-xl font-bold text-gray-700">Email Address:</div>
+      <div><%= heroicon 'at-symbol', options: { class: 'h-6' } %></div>
+      <div><%= current_user.email %></div>
+    </div>
+    <div class="grid grid-cols-3 items-center">
+      <div class="text-xl font-bold text-gray-700">Full name:</div>
+      <div><%= heroicon 'user-circle', variant: :outline, options: { class: 'h-6' } %></div>
+      <div><%= current_user.full_name %></div>
+    </div>
+    <div class="grid grid-cols-3 items-center">
+      <div class="text-xl font-bold text-gray-700">Phone number:</div>
+      <div><%= heroicon 'phone', variant: :outline, options: { class: 'h-6' } %></div>
+      <div><%= number_to_phone @profile.phone_number %></div>
+    </div>
+    <div class="grid grid-cols-3 items-center">
+      <div class="text-xl font-bold text-gray-700">Address:</div>
+      <div><%= heroicon 'home', variant: :outline, options: { class: 'h-6' } %></div>
+      <div><%= @profile.full_address %></div>
+    </div>
+    <div class="grid grid-cols-3 items-center">
+      <div class="text-xl font-bold text-gray-700">My Pet:</div>
+    </div>
+  </div>
+  <div class="mt-6">
+    <% if current_user.cat %>
+      <%= render partial: 'cats/profile_card', locals: { cat: current_user.cat } %>
+    <% else %>
+      <div class="text-center">
+        <%= link_to '+ Add Pet', new_cat_path, class: 'text-indigo-700 text-lg hover:text-indigo-900' %>
+      </div>
+    <% end %>
+  </div>
+  <div class="relative flex flex-row items-center">
+    <% if policy(current_user.profile).edit?  %>
+      <%= link_to 'Edit', profile_edit_path(current_user), class: 'ml-auto' %>
+    <% end %>
+  </div>
+<% end %>
+

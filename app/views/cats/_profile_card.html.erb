@@ -1,0 +1,7 @@
+<div class="relative flex flex-row items-center rounded-lg shadow-lg h-24 p-4">
+  <span class="inline-flex justify-center items-center">
+    <%= image_tag cat.picture, class: 'h-16 w-16' %>
+  </span>
+  <span class="ml-2 text-2xl"><%= cat.name %></span>
+  <%= link_to 'View Profile', cat_path(cat), class: 'ml-auto' %>
+</div>

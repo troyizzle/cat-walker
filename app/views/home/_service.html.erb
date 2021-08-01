@@ -1,0 +1,13 @@
+<%= link_to link, class: '' do %>
+  <div class="p-4 rounded-lg shadow-lg h-48 w-48 transform hover:scale-125">
+    <div class="flex justify-center">
+      <div class="border border-8 border-green-500 rounded-full p-2">
+        <%= image_tag img, class: 'h-24 w-24 rounded-full' %>
+      </div>
+    </div>
+    <h3 class="text-center font-bold"><%= title %></h3>
+    <p class="text-center">
+      <%= description %>
+    </p>
+  </div>
+<% end %>

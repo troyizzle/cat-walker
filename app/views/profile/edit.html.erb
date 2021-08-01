@@ -1,0 +1,30 @@
+<%= render(LayoutComponent.new(title: 'Edit my profile')) do %>
+  <%= form_for(current_user.profile || Profile.new(user: current_user), url: profile_path, dom_id: (current_user), method: :put, html: { class: 'space-y-4' }) do |f| %>
+    <%= f.error_explanation %>
+    <div>
+      Full name:
+    </div>
+    <div class="flex flex-row items-center space-x-2">
+      <%= heroicon 'user-circle', variant: :outline, options: { class: 'h-14' } %>
+      <%= f.tw_text_field :first_name, { autofocus: true, placeholder: 'First Name', class: 'w-full' } %>
+      <%= f.tw_text_field :last_name, { placeholder: 'Last Name', class: 'w-full' } %>
+    </div>
+    <div>Phone number:</div>
+    <div class="flex flex-row items-center space-x-2">
+      <%= heroicon 'phone', variant: :outline, options: { class: 'h-6' } %>
+      <%= f.telephone_field :phone_number, { placeholder: 'Phone number', class: 'w-full' } %>
+    </div>
+    <div>Address:</div>
+    <div class="flex flex-row items-center space-x-2">
+      <%= heroicon 'home', variant: :outline, options: { class: 'h-6' } %>
+      <%= f.tw_text_field :address, { placeholder: 'Address', class: 'w-full' } %>
+    </div>
+    <div class="flex flex-row flex-grow items-center space-x-2">
+      <%= f.tw_text_field :city, { placeholder: 'City', class: 'ml-8 w-full' } %>
+      <%= f.tw_text_field :state, { placeholder:  'State', class: 'w-full' } %>
+      <%= f.tw_number_field :zip, { placeholder: 'Zip', class: 'w-full' } %>
+    </div>
+
+    <%= f.rich_submit "Save" %>
+  <% end %>
+<% end %>

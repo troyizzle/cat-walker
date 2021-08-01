@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @walker.user_id %>
+</p>
+
+<p>
+  <strong>Terms:</strong>
+  <%= @walker.terms %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @walker.zip %>
+</p>
+
+<p>
+  <strong>Range:</strong>
+  <%= @walker.range %>
+</p>
+
+<%= link_to 'Edit', edit_walker_path(@walker) %> |
+<%= link_to 'Back', walkers_path %>

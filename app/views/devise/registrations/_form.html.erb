@@ -1,0 +1,51 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), dom_id: (resource), html: { class: 'space-y-4' }) do |f| %>
+  <%= f.error_explanation %>
+  <%= f.fields_for :profile, resource.build_user_profile do |pf| %>
+    <div data-controller="image" class="mx-auto px-4 py-5 rounded-lg shadow-lg text-center w-48">
+      <div class="mb-4">
+        <img
+            data-image-target="updateImage"
+            class="w-auto mx-auto rounded-full object-cover object-center"
+            src="https://i1.pngguru.com/preview/137/834/449/cartoon-cartoon-character-avatar-drawing-film-ecommerce-facial-expression-png-clipart.jpg"
+            alt="Upload image"
+        />
+      </div>
+      <label class="cursor-pointer mt-6">
+        <span class="mt-2 text-base leading-normal px-4 py-2 bg-blue-500 text-white text-sm rounded-full">Select Avatar</span>
+        <%= pf.file_field :avatar, class: 'hidden', data: { action: 'image#updateImage' } %>
+      </label>
+    </div>
+    <div>
+      <div class="flex flex-row space-x-2">
+        <%= pf.tw_text_field :first_name, { autofocus: true, placeholder: 'First Name', class: 'w-full' } %>
+        <%= pf.tw_text_field :last_name, { autofocus: true, placeholder: 'Last Name', class: 'w-full' } %>
+      </div>
+    </div>
+    <div>
+      <%= pf.tw_text_field :phone_number, { placeholder: 'Phone Number (XXX-XXX-XXXX Format)', class: 'w-full' } %>
+    </div>
+    <div>
+      <%= pf.tw_text_field :address, { placeholder: 'Address', class: 'w-full' } %>
+    </div>
+    <div class="flex flex-row space-x-2">
+      <%= pf.tw_text_field :city, { placeholder: 'City', class: 'w-full'  }%>
+      <%= pf.tw_select :state, CS.states(:us).invert, {}, { class: 'w-full' } %>
+      <%= pf.tw_number_field :zip, { placeholder: 'Zip', class: 'w-full' } %>
+    </div>
+    <div>
+      <%= f.tw_email_field :email, { autofocus: true, autocomplete: "email", placeholder: "Email", class: 'w-full' } %>
+    </div>
+    <div>
+      <%= f.text_field :username, { autocomplete: 'username', placeholder: 'Username', class: 'w-full' } %>
+    </div>
+    <div>
+      <%= f.tw_password_field :password, { autocomplete: 'password', placeholder: 'Password', class: 'w-full' } %>
+    </div>
+    <div>
+      <%= f.tw_password_field :password_confirmation, { autocomplete: 'new-password', placeholder: 'Confirm password', class: 'w-full' } %>
+    </div>
+    <div>
+      <%= f.rich_submit "Sign up" %>
+    </div>
+  <% end %>
+<% end %>
