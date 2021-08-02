@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe "db:seed:book:" do
-  run_seeds { Rake::Task["db:seed:book"] }
+  let(:run_seeds) { Rake::Task["db:seed:book"] }
 
   before(:each) { Rails.application.load_tasks }
 
