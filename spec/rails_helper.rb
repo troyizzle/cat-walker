@@ -12,6 +12,8 @@ require "pundit/rspec"
 require "pundit/matchers"
 require "support/policy_stubs"
 require "active_storage_validations/matchers"
+require 'simplecov'
+SimpleCov.start
 Dir["./spec/support/shared_examples/*.rb"].sort.each { |f| require f }
 # Add additional requires below this line. Rails is not loaded until this point!
 
