@@ -149,6 +149,7 @@ RSpec.describe "Books", type: :request do
 
     context "without allowed permissions" do
       login_user
+      let(:params) { valid_params }
 
       before(:each) do
         no_policy
@@ -162,7 +163,7 @@ RSpec.describe "Books", type: :request do
       login_user
 
       context "with invalid params" do
-        let(:params) { invalid_params }
+        let(:params) { { icon: '' } }
 
         before(:each) do
           yes_policy
