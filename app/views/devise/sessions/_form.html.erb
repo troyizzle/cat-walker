@@ -1,7 +1,7 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'space-y-4' }, dom_id: (resource)) do |f| %>
   <%= f.error_explanation %>
-  <%= f.tw_text_field :username, { placeholder: 'Username', class: 'w-full' } %>
-  <%= f.tw_password_field :password, { autocomplete: 'current-password', class: 'w-full' } %>
+  <%= f.tw_text_field :username, { autocomplete: 'username', placeholder: 'Username', class: 'w-full' } %>
+  <%= f.tw_password_field :password, { autocomplete: 'current-password', placeholder: 'Password', class: 'w-full' } %>
 
   <% if devise_mapping.rememberable? %>
     <div class="field">

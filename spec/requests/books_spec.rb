@@ -163,7 +163,7 @@ RSpec.describe "Books", type: :request do
       login_user
 
       context "with invalid params" do
-        let(:params) { { icon: '' } }
+        let(:params) { { icon: "" } }
 
         before(:each) do
           yes_policy

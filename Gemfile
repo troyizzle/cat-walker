@@ -39,6 +39,10 @@ group :development, :test do
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "factory_bot_rails"
   gem "rspec-rails"
+  gem "rubocop", require: false
+  gem "rubocop-performance"
+  gem "rubocop-rails"
+  gem "rubocop-rspec"
 end
 
 group :development do
@@ -60,8 +64,8 @@ group :test do
   gem "pundit-matchers", "~> 1.7.0"
   gem "rails-controller-testing"
   gem "selenium-webdriver"
-  gem 'simplecov', require: false
   gem "shoulda-matchers", "~> 5.0"
+  gem "simplecov", require: false
   # Easy installation and use of web drivers to run system tests with browsers
   gem "webdrivers"
 end
