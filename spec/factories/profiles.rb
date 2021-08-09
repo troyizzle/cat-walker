@@ -17,8 +17,6 @@
 #  updated_at   :datetime         not null
 #
 FactoryBot.define do
-  file_path = Rails.root.join("public/images/default.png")
-
   factory :profile do
     first_name { Faker::Name.name }
     last_name { Faker::Name.name }
@@ -28,6 +26,6 @@ FactoryBot.define do
     zip { "32703" }
     state { "FL" }
     user
-    avatar { Rack::Test::UploadedFile.new(file_path) }
+    avatar { upload_file(Rails.root.join("public/images/default.png")) }
   end
 end

@@ -11,6 +11,7 @@ require "rspec/rails"
 require "pundit/rspec"
 require "pundit/matchers"
 require "support/policy_stubs"
+require "support/factory_bot"
 require "active_storage_validations/matchers"
 require "simplecov"
 SimpleCov.start
@@ -84,8 +85,4 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
-end
-
-RSpec.configure do |config|
-  config.include FactoryBot::Syntax::Methods
 end
