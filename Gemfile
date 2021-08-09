@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.2"
+ruby "3.0.1"
 
 gem "active_storage_validations"
 
@@ -63,7 +63,7 @@ group :test do
   gem "faker"
   gem "pundit-matchers", "~> 1.7.0"
   gem "rails-controller-testing"
-  gem "selenium-webdriver"
+  gem "selenium-webdriver", "~> 3.142.7"
   gem "shoulda-matchers", "~> 5.0"
   gem "simplecov", require: false
   # Easy installation and use of web drivers to run system tests with browsers

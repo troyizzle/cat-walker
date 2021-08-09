@@ -9,6 +9,8 @@
 
 coverage/*
 
+.tool-versions
+
 # Ignore all logfiles and tempfiles.
 .log*
 /log/*

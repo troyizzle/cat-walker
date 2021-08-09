@@ -366,7 +366,7 @@ DEPENDENCIES
   rubocop-rspec
   sass-rails (>= 6)
   seedbank
-  selenium-webdriver
+  selenium-webdriver (~> 3.142.7)
   shoulda-matchers (~> 5.0)
   simplecov
   spring
@@ -378,7 +378,7 @@ DEPENDENCIES
   whenever
 
 RUBY VERSION
-   ruby 2.7.2p137
+   ruby 3.0.1p64
 
 BUNDLED WITH
    2.2.15
