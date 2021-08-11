@@ -20,6 +20,8 @@ class Cat < ApplicationRecord
 
   has_one_attached :picture
 
+  has_many :appointments, dependent: :destroy
+
   validates :picture, attached: true, content_type: ALLOWED_PICTURE_TYPES
   validates :name, presence: true
   validates :breed, presence: true

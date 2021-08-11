@@ -15,6 +15,8 @@
 class Walker < ApplicationRecord
   belongs_to :user
 
+  has_many :appointments, dependent: :nullify
+
   validates :zip, presence: true
   validates :range, presence: true, numericality: { greater_than: 0, less_than: 50 }
   validates :terms, presence: true, acceptance: true

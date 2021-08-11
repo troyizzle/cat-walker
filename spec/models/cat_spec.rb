@@ -17,6 +17,7 @@ require "rails_helper"
 
 RSpec.describe Cat, type: :model do
   describe "associatons" do
+    it { is_expected.to have_many(:appointments).class_name("Appointment").dependent(:destroy) }
     it { is_expected.to belong_to(:user).class_name("User") }
     it { is_expected.to have_one_attached(:picture) }
   end

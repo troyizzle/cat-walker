@@ -3,6 +3,10 @@
 require "rails_helper"
 
 RSpec.describe Book, type: :model do
+  describe "associations" do
+    it { is_expected.to have_many(:appointments).class_name("Appointment").dependent(:nullify) }
+  end
+
   describe "database" do
     it { is_expected.to have_db_column(:id).of_type(:integer) }
   end
