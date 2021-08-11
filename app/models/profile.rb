@@ -19,11 +19,13 @@
 class Profile < ApplicationRecord
   ALLOWED_AVATAR_TYPES = Mime::Type.parse_data_with_trailing_star("image").map(&:to_s)
 
+  after_initialize :set_defaults
+
   belongs_to :user
 
   has_one_attached :avatar
 
-  validates :avatar, attached: true, content_type: ALLOWED_AVATAR_TYPES
+  validates :avatar, content_type: ALLOWED_AVATAR_TYPES
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -42,6 +44,18 @@ class Profile < ApplicationRecord
   end
 
   private
+
+  def set_defaults
+    add_default_avatar unless avatar.attached?
+  end
+
+  def add_default_avatar
+    avatar.attach(
+      io: File.open(File.join("public/images/default.png")),
+      filename: "default_avatar",
+      content_type: "image/png"
+    )
+  end
 
   def city_in_state
     return unless state.present? && city.present?
