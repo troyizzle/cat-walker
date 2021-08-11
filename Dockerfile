@@ -15,5 +15,6 @@ COPY . /app/
 ENV BUNDLE_PATH /gems
 RUN yarn install
 RUN bundle install
+RUN bundle exec rails assets:precompile
 
 CMD ["./entrypoint.sh"]
