@@ -38,7 +38,6 @@ RSpec.describe Profile, type: :model do
   end
 
   describe "validations" do
-    it { is_expected.to validate_attached_of(:avatar) }
     it { is_expected.to validate_content_type_of(:avatar).allowing(described_class::ALLOWED_AVATAR_TYPES) }
     # TODO: 'Make a helper to exclude mime types and check verus rest'
     it { is_expected.to validate_content_type_of(:avatar).rejecting("text/plan") }
