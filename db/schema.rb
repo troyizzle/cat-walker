@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_31_144857) do
+ActiveRecord::Schema.define(version: 2021_08_11_164751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,18 @@ ActiveRecord::Schema.define(version: 2021_07_31_144857) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "appointments", force: :cascade do |t|
+    t.bigint "walker_id", null: false
+    t.bigint "book_id", null: false
+    t.bigint "cat_id", null: false
+    t.integer "status", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_appointments_on_book_id"
+    t.index ["cat_id"], name: "index_appointments_on_cat_id"
+    t.index ["walker_id"], name: "index_appointments_on_walker_id"
   end
 
   create_table "books", force: :cascade do |t|
@@ -113,6 +125,9 @@ ActiveRecord::Schema.define(version: 2021_07_31_144857) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "appointments", "books"
+  add_foreign_key "appointments", "cats"
+  add_foreign_key "appointments", "walkers"
   add_foreign_key "cats", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "walkers", "users"
