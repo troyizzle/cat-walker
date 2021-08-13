@@ -20,9 +20,13 @@ RSpec.configure do |config|
       execution_time_in_seconds = finish - start
 
       if execution_time_in_seconds >= 0.5
+<<<<<<< HEAD
         # rubocop:disable Layout/LineLength
         warn "Slow factory: #{payload[:name]} takes #{execution_time_in_seconds} seconds using strategy #{payload[:strategy]}"
         # rubocop:enable Layout/LineLength
+=======
+        warn "Slow factory: #{payload[:name]} takes #{execution_time_in_seconds} seconds using strategy #{payload[:strategy]}"
+>>>>>>> c8d3dd04fa504c61b035fae5dbaa12ebe29dff7a
       end
     end
   end
